@@ -1,4 +1,4 @@
-package backend.mingeso.pruebas.entities.repositories;
+package backend.mingeso.pruebasintermedia.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,16 +10,15 @@ import org.antlr.v4.runtime.misc.NotNull;
 
 
 @Entity
-@Table(name = "pruebas")
+@Table(name = "pruebas_intermedia")
 @Data
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-public class PruebasEntity {
+public class PruebasIntermediaEntity {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String dificultad_pregunta;
     private String enunciado;
     private String codigo;
     private String respuesta;

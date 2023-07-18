@@ -9,7 +9,9 @@
         <module name="pruebas" />
         <module name="eureka-service" />
         <module name="config-service" />
+        <module name="pruebas-dificil" />
         <module name="gateway-service" />
+        <module name="pruebas-intermedia" />
       </profile>
     </annotationProcessing>
   </component>
@@ -19,6 +21,8 @@
       <module name="eureka-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="pruebas" options="-parameters" />
+      <module name="pruebas-dificil" options="-parameters" />
+      <module name="pruebas-intermedia" options="-parameters" />
     </option>
   </component>
 </project>

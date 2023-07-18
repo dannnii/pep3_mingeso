@@ -1,15 +1,15 @@
-package backend.mingeso.pruebas;
+package backend.mingeso.pruebasintermedia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient  // Enable eureka client. It inherits from @EnableDiscoveryClient.
-public class PruebasApplication {
+@EnableDiscoveryClient
+public class PruebasIntermediaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PruebasApplication.class, args);
+		SpringApplication.run(PruebasIntermediaApplication.class, args);
 	}
 
 }
