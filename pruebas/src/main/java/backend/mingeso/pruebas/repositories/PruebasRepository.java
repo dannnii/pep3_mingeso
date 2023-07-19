@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 @Repository
 public interface PruebasRepository extends JpaRepository<PruebasEntity, Integer>{
-    public ArrayList<PruebasEntity> findByDifPruebas(String dificultad_prueba);
+    public ArrayList<PruebasEntity> findByDificultadPrueba(String dificultadPrueba);
+
 
 }

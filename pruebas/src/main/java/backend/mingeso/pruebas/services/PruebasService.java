@@ -19,8 +19,8 @@ public class PruebasService {
         return (ArrayList<PruebasEntity>) pruebasRepository.findAll();
     }
 
-    public ArrayList<PruebasEntity> obtenerDificultad(String dificultad_prueba) {
-        ArrayList<PruebasEntity> preguntas = pruebasRepository.findByDifPruebas(dificultad_prueba);
+    public ArrayList<PruebasEntity> obtenerDificultad(String dificultadPrueba) {
+        ArrayList<PruebasEntity> preguntas = pruebasRepository.findByDificultadPrueba(dificultadPrueba);
         return preguntas;
     }
 

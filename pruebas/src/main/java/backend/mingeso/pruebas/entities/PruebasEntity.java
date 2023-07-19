@@ -19,7 +19,7 @@ public class PruebasEntity {
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String dificultad_prueba;
+    private String dificultadPrueba;
     private String enunciado;
     private String codigo;
     private String respuesta;

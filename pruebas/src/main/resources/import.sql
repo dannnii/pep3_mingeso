@@ -1,4 +1,7 @@
+/*
+
 INSERT INTO pruebas (id, dificultad_prueba, enunciado, codigo, respuesta)
+
 VALUES (1, 'facil', '¿Qué imprime el siguiente código?', 'a = 3\nb = 7\nc = 9\na = c % b\nb = a // b % c\nprint(a * b + c % a + b + c)', '25');
 
 -- Pregunta 2: ¿Cual es el resultado al evaluar en Python?
@@ -100,3 +103,5 @@ VALUES (26, 'dificil', '¿Qué se imprime por pantalla?', 'x = 10\ny = 3\nwhile 
 
 INSERT INTO pruebas (id, dificultad_prueba, enunciado, codigo, respuesta)
 VALUES (27, 'dificil', '¿Cuál es el resultado de la operación bitwise?', 'a = 7\nb = 3\nc = a & b\nprint(c)', '3');
+
+*/
