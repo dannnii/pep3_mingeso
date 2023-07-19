@@ -1,2 +1,0 @@
-insert into pruebas (id, dificultad_pregunta, enunciado, codigo, respuesta) values (1, '¿Qué imprime por pantalla el siguiente codigo?"', 'a = 3\nb = 7\nc = 9\na = c % b\nb = a // b % c\nprint(a * b + c % a + b + c)', '10');
-insert into pruebas (id, dificultad_pregunta, enunciado, codigo, respuesta) values (2, '¿Qué imprime por pantalla el siguiente codigo?"', 'a = 3\nb = 7\nc = 9\na = c % b\nb = a // b % c\nprint(a * b + c % a + b + c)', '10');
