@@ -14,30 +14,25 @@ public class PruebasService {
     @Autowired
     private PruebasRepository pruebasRepository;
 
-    @Autowired
-    RestTemplate restTemplate;
 
     public ArrayList<PruebasEntity> obtenerData(){
 
         return (ArrayList<PruebasEntity>) pruebasRepository.findAll();
     }
 
-    public PruebasEntity guardarPrueba(PruebasEntity pruebas) {
 
-        return pruebasRepository.save(pruebas);
+    public PruebasEntity savePregunta(PruebasEntity prueba){
+        PruebasEntity guardarProblema = pruebasRepository.save(prueba);
+        return guardarProblema;
     }
 
 
-
     /*
-        public List<PruebasEntity> getAll(){
-            return PruebasRepository.findAll();
-        }
 
 
      buscar por el tipo de prueba o dificultad
-        public PruebasEntity getPersonalById(int id){
-            return PruebasRepository.findById(id).orElse(null);
+        public PruebasEntity getPruebaByDificultad(String dificultad_prueba){
+            return PruebasRepository.findByDificultad(String).orElse(null);
         }
 
 

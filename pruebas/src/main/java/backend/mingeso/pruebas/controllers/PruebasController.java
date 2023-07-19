@@ -5,11 +5,10 @@ import backend.mingeso.pruebas.services.PruebasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+i
 
 import java.util.ArrayList;
 
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/pruebas")
@@ -25,11 +24,13 @@ public class PruebasController {
         }
         return ResponseEntity.ok(listaProblemas);
     }
+    // para guardar una nueva pregunta
+
 
     @PostMapping
-    public void nuevoPregunta(@RequestBody PruebasEntity pruebas) {
-
-        pruebasService.guardarPrueba(pruebas);
+    public ResponseEntity<PruebasEntity> nuevoPregunta(@RequestBody PruebasEntity prueba){
+        PruebasEntity guardarProblema = pruebasService.savePregunta(prueba);
+        return PruebasEntity.ok(guardarProblema);
     }
 
 
