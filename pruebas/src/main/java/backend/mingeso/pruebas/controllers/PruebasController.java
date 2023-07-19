@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+
+import java.util.List;
+
 @RestController
-@RequestMapping("/facil")
+@RequestMapping("/pruebas")
 public class PruebasController {
     @Autowired
     PruebasService pruebasService;
@@ -29,4 +32,37 @@ public class PruebasController {
         pruebasService.guardarPrueba(pruebas);
     }
 
+
+
+
+
+
+
+
+
+
+ /*   @GetMapping
+    public ResponseEntity<List<PruebasEntity>> getAll(){
+        List<PruebasEntity> lista_pruebas = pruebasService.getAll();
+        if (lista_pruebas.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(lista_pruebas);
+    }
+
+    @GetMapping("/{id")
+    public ResponseEntity<PruebasEntity> getById(@PathVariable("id") int id){
+        PruebasEntity pruebas = pruebasService.getPruebaById(id);
+        if (pruebas==null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(pruebas);
+    }
+
+    @PostMapping
+    public ResponseEntity<PruebasEntity> save(@RequestBody PruebasEntity pruebas){
+        PruebasEntity nueva_prueba = pruebasService.save(pruebas);
+        return ResponseEntity.ok(pruebas);
+    }
+*/
 }

@@ -9,11 +9,13 @@
         <module name="pruebas" />
         <module name="eureka-service" />
         <module name="config-service" />
-        <module name="pruebas-dificil" />
         <module name="gateway-service" />
-        <module name="pruebas-intermedia" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pruebas-dificil" target="17" />
+      <module name="pruebas-intermedia" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
