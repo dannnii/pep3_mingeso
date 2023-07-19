@@ -5,7 +5,6 @@ import backend.mingeso.pruebas.services.PruebasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-i
 
 import java.util.ArrayList;
 
@@ -24,46 +23,22 @@ public class PruebasController {
         }
         return ResponseEntity.ok(listaProblemas);
     }
-    // para guardar una nueva pregunta
+    // para obtener las preguntas de pruebas por dificultad
 
-
-    @PostMapping
-    public ResponseEntity<PruebasEntity> nuevoPregunta(@RequestBody PruebasEntity prueba){
-        PruebasEntity guardarProblema = pruebasService.savePregunta(prueba);
-        return PruebasEntity.ok(guardarProblema);
-    }
-
-
-
-
-
-
-
-
-
-
- /*   @GetMapping
-    public ResponseEntity<List<PruebasEntity>> getAll(){
-        List<PruebasEntity> lista_pruebas = pruebasService.getAll();
-        if (lista_pruebas.isEmpty()){
+    @GetMapping("/{dificultad_prueba}")
+    public ResponseEntity<ArrayList<PruebasEntity>> getByDif(@PathVariable("dificultad_prueba") String dificultad_prueba) {
+        ArrayList<PruebasEntity> preguntas = pruebasService.obtenerDificultad(dificultad_prueba);
+        if (preguntas.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(lista_pruebas);
+        return ResponseEntity.ok(preguntas);
     }
 
-    @GetMapping("/{id")
-    public ResponseEntity<PruebasEntity> getById(@PathVariable("id") int id){
-        PruebasEntity pruebas = pruebasService.getPruebaById(id);
-        if (pruebas==null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(pruebas);
-    }
-
+    // para guardar una nueva pregunta
     @PostMapping
-    public ResponseEntity<PruebasEntity> save(@RequestBody PruebasEntity pruebas){
-        PruebasEntity nueva_prueba = pruebasService.save(pruebas);
-        return ResponseEntity.ok(pruebas);
+    public ResponseEntity<PruebasEntity> nuevoPregunta(@RequestBody PruebasEntity pruebas){
+        PruebasEntity guardarProblema = pruebasService.savePregunta(pruebas);
+        return ResponseEntity.ok(guardarProblema);
     }
-*/
+
 }
