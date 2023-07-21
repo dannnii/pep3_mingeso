@@ -37,7 +37,7 @@ public class PruebasController {
     // para guardar una nueva pregunta
 
     @PostMapping("/agregar-pregunta")
-    public ResponseEntity<PruebasEntity> agregarPregunta(@RequestBody PruebasEntity pruebasEntity){
+    public ResponseEntity<PruebasEntity> savePregunta(@RequestBody PruebasEntity pruebasEntity){
         PruebasEntity nuevaPregunta = pruebasService.savePregunta(pruebasEntity);
         return ResponseEntity.ok(nuevaPregunta);
     }
