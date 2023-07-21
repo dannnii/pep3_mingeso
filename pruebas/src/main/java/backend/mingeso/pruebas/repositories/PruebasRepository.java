@@ -10,5 +10,6 @@ import java.util.ArrayList;
 public interface PruebasRepository extends JpaRepository<PruebasEntity, Integer>{
     public ArrayList<PruebasEntity> findByDificultadPrueba(String dificultadPrueba);
 
-
+    // Consulta para buscar una pregunta por su enunciado
+    PruebasEntity findByEnunciado(String enunciado);
 }

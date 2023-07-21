@@ -3,6 +3,7 @@ package backend.mingeso.pruebas.controllers;
 import backend.mingeso.pruebas.entities.PruebasEntity;
 import backend.mingeso.pruebas.services.PruebasService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,19 +38,24 @@ public class PruebasController {
     // para guardar una nueva pregunta
 
     @PostMapping("/agregar-pregunta")
-    public ResponseEntity<PruebasEntity> savePregunta(@RequestBody PruebasEntity pruebasEntity){
-        PruebasEntity nuevaPregunta = pruebasService.savePregunta(pruebasEntity);
-        return ResponseEntity.ok(nuevaPregunta);
+    public ResponseEntity<PruebasEntity> savePregunta(@RequestBody PruebasEntity pruebasEntity) {
+        ResponseEntity<PruebasEntity> response = pruebasService.savePregunta(pruebasEntity);
+        if (response.getStatusCode() == HttpStatus.CONFLICT) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // Pregunta duplicada
+        }
+        return response;
     }
 
 
 
-/*    @PostMapping
-    public ResponseEntity<PruebasEntity> nuevoPregunta(@RequestBody PruebasEntity pruebas) {
-        // No es necesario incluir el campo "id" en el JSON enviado, ya que se generará automáticamente.
-        // Si el campo "id" es incluido en el JSON, se ignorará su valor al guardar en la base de datos.
-        PruebasEntity guardarProblema = pruebasService.savePregunta(pruebas);
-        return ResponseEntity.ok(guardarProblema);
+
+/*
+    @PostMapping("/agregar-pregunta")
+    public ResponseEntity<PruebasEntity> savePregunta(@RequestBody PruebasEntity pruebasEntity) {
+        System.out.println("Recibiendo nueva pregunta: " + pruebasEntity);
+        PruebasEntity nuevaPregunta = pruebasService.savePregunta(pruebasEntity);
+        System.out.println("Nueva pregunta guardada: " + nuevaPregunta);
+        return ResponseEntity.ok(nuevaPregunta);
     }
 */
 
