@@ -24,11 +24,16 @@ public class PruebasService {
         return preguntas;
     }
 
-
+/*
     public PruebasEntity savePregunta(PruebasEntity pruebas){
         PruebasEntity guardarProblema = pruebasRepository.save(pruebas);
         return guardarProblema;
     }
+*/
+    public PruebasEntity savePregunta(PruebasEntity pruebasEntity) {
+        PruebasEntity nuevaPregunta = pruebasRepository.save(pruebasEntity);
+        return nuevaPregunta;
+}
 
 
 
