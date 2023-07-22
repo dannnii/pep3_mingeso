@@ -1,0 +1,30 @@
+.Home {
+    background-color: gray;
+    width: 100vh;
+    height: 30vh;
+    /* Usamos 100vh para que ocupe el 100% del alto de la ventana */
+    margin: 0;
+    padding: 0;
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    /* Centramos verticalmente */
+    align-items: center;
+    /* Centramos horizontalmente */
+}
+
+.Home .home-btns{
+    width: 100vh;
+}
+
+.btns{
+    margin: 10px;
+}
+
+.btns:hover{
+    margin: 10px;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}

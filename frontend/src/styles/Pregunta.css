@@ -1,0 +1,52 @@
+.container-preg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid gray;
+}
+
+.container-preg .Enunciado {
+    font-size: 20px;
+    width: 70%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+}
+
+.container-preg .imagen {
+    width: auto;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+.container-preg .input-answer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.input-answer .title{
+    position: absolute;
+    top: -20px;
+    left: 10px;
+}
+
+
+.input-answer .input-answer {
+    background-color: white;
+    height: 20px;
+    margin-top: 10px;
+    width: 600px;
+    height: 30px;
+    margin: 10px;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+}
