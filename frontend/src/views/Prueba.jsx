@@ -4,13 +4,19 @@ import { Link } from 'react-router-dom';
 import "/src/styles/Prueba.css";
 import axios from 'axios';
 const Prueba = () => {
+    const [correctAnswers, setCorrectAnswers] = useState(0);
+    const [incorrectAnswers, setIncorrectAnswers] = useState(0);
+    const [averageGrade, setAverageGrade] = useState(0);
     const [testFinish, setTestFinish] = useState(false);
     const [preguntas, setPreguntas] = useState([]);
     const [preguntasData, setPreguntasData] = useState([]);
     const [codigo, setCodigo] = useState([]);
 
     const [enunciado, setEnunciado] = useState([]);
-
+    const [correct1, setCorrect1] = useState("");
+    const [correct2, setCorrect2] = useState("");
+    const [correct3, setCorrect3] = useState("");
+    const [correct4, setCorrect4] = useState("");
     const [completed_preg, setCompletedPreg] = useState({
         pregunta1: false,
         pregunta2: false,
@@ -41,32 +47,40 @@ const Prueba = () => {
         console.log("INGRESADO", ingresado);
         console.log("RESPUESTAS", respuestas);
         if (respuestas[0] === ingresado.pregunta1) {
+            setCorrect1("correct");
             correctAnswers++;
             nota1 = 7;
         } else {
+            setCorrect1("incorrect");
             nota1 = 1;
             incorrectAnswers++;
         }
 
         if (respuestas[1] === ingresado.pregunta2) {
+            setCorrect2("correct");
             correctAnswers++;
             nota2 = 7;
         } else {
+            setCorrect2("incorrect");
             nota2 = 1;
             incorrectAnswers++;
         }
 
         if (respuestas[2] === ingresado.pregunta3) {
+            setCorrect3("correct");
             correctAnswers++;
             nota3 = 7;
         } else {
+            setCorrect3("incorrect");
             nota3 = 1;
             incorrectAnswers++;
         }
         if (respuestas[3] === ingresado.pregunta4) {
+            setCorrect4("correct");
             correctAnswers++;
             nota4 = 7;
         } else {
+            setCorrect4("incorrect");
             nota4 = 1;
             incorrectAnswers++;
         }
@@ -78,51 +92,11 @@ const Prueba = () => {
         console.log('nota3', nota3);
         console.log('nota4', nota4);
         const averageGrade = (nota1 + nota2 + nota3 + nota4) / totalQuestions;
-        // Mostramos los resultados
-        alert(`Respuestas correctas: ${correctAnswers}\nRespuestas incorrectas: ${incorrectAnswers}\nNota: ${averageGrade}`);
+        setAverageGrade(averageGrade);
+        setCorrectAnswers(correctAnswers);
+        setIncorrectAnswers(incorrectAnswers);
+        window.scrollTo(0, 0);
 
-        // Cambiamos el estilo en base a los
-        const pregunta1Cont = document.querySelector('.pregunta1-cont');
-        const pregunta2Cont = document.querySelector('.pregunta2-cont');
-        const pregunta3Cont = document.querySelector('.pregunta3-cont');
-        const pregunta4Cont = document.querySelector('.pregunta4-cont');
-        
-        console.log("pregunta1Cont", pregunta1Cont);
-        console.log("pregunta2Cont", pregunta2Cont);
-        console.log("pregunta3Cont", pregunta3Cont);
-        console.log("pregunta4Cont", pregunta4Cont);
-
-        if (respuestas[0] === ingresado.pregunta1) {
-            console.log("Pregunta 1 correcta");
-            pregunta1Cont.classList.add('correct');
-        } else {
-            console.log("Pregunta 1 incorrecta");
-            pregunta1Cont.classList.add('incorrect');
-        }
-
-        if (respuestas[1] === ingresado.pregunta2) {
-            console.log("Pregunta 2 correcta");
-            pregunta2Cont.classList.add('correct');
-        } else {
-            console.log("Pregunta 2 incorrecta");
-            pregunta2Cont.classList.add('incorrect');
-        }
-
-        if (respuestas[2] === ingresado.pregunta3) {
-            console.log("Pregunta 3 correcta");
-            pregunta3Cont.classList.add('correct');
-        } else {
-            console.log("Pregunta 3 incorrecta");
-            pregunta3Cont.classList.add('incorrect');
-        }
-
-        if (respuestas[3] === ingresado.pregunta4) {
-            console.log("Pregunta 4 correcta");
-            pregunta4Cont.classList.add('correct');
-        } else {
-            console.log("Pregunta 4 incorrecta");
-            pregunta4Cont.classList.add('incorrect');
-        }
     };
 
     // Call the calculateGrade function in handleSubmit
@@ -150,28 +124,22 @@ const Prueba = () => {
             pregunta4: false,
         });
 
-        setRespuestas({
+        setIngresados({
             pregunta1: "",
             pregunta2: "",
             pregunta3: "",
             pregunta4: "",
         });
-
-        // Desmarcar preguntas de revisión
-        const pregunta1Cont = document.querySelector('.pregunta1-cont');
-        const pregunta2Cont = document.querySelector('.pregunta2-cont');
-        const pregunta3Cont = document.querySelector('.pregunta3-cont');
-        const pregunta4Cont = document.querySelector('.pregunta4-cont');
-
-        pregunta1Cont.classList.remove('correct', 'incorrect');
-        pregunta2Cont.classList.remove('correct', 'incorrect');
-        pregunta3Cont.classList.remove('correct', 'incorrect');
-        pregunta4Cont.classList.remove('correct', 'incorrect');
+        
+        setCorrect1("");
+        setCorrect2("");    
+        setCorrect3("");
+        setCorrect4("");
     };
 
 
     const handleContent = (content, answer, pregunta) => {
-        console.log("content", content, "answer",answer);
+        console.log("content", content, "answer", answer);
         setCompletedPreg((prevState) => ({
             ...prevState,
             [pregunta]: content,
@@ -186,16 +154,25 @@ const Prueba = () => {
         setDificultad(dificultad);
         const preguntas = preguntasData.filter((pregunta) => pregunta.dificultadPrueba === dificultad);
 
+        /*
         // Obtener 4 preguntas aleatorias
         const selectedQuestions = [];
         while (selectedQuestions.length < 4) {
-            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             const randomIndex = Math.floor(Math.random() * preguntas.length);
             const randomQuestion = preguntas[randomIndex];
             if (!selectedQuestions.includes(randomQuestion)) {
                 selectedQuestions.push(randomQuestion);
             }
         }
+        */
+        //Obtener las primera 4 preguntas
+        const selectedQuestions = [
+            preguntas[0],
+            preguntas[1],
+            preguntas[2],
+            preguntas[3]
+        ];
+
         console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA", selectedQuestions);
         setPreguntas(selectedQuestions);
         setCodigo([
@@ -242,6 +219,14 @@ const Prueba = () => {
 
     return (
         <div className='container-Form'>
+            {testFinish && (
+                <>
+                    <h1>Respuestas correctas: {correctAnswers}</h1>
+                    <h1>Respuestas incorrectas: {incorrectAnswers}</h1>
+                    <h1>Nota: {averageGrade}</h1>
+
+                </>
+            )}
             {dificultad === "" ?
                 (
                     <>
@@ -259,16 +244,16 @@ const Prueba = () => {
                 (
                     <>
                         <form action='' className='formCont' onSubmit={handleSubmit}>
-                            <div className='pregunta1-cont'>
+                            <div className={`pregunta1-cont ${correct1}`}>
                                 <Pregunta nroPregunta={1} codigo={codigo[0]} enunciado={enunciado[0]} isReset={testFinish} logica={(content, answer) => handleContent(content, answer, 'pregunta1')} />
                             </div>
-                            <div className='pregunta2-cont'>
+                            <div className={`pregunta2-cont ${correct2}`}>
                                 <Pregunta nroPregunta={2} codigo={codigo[1]} enunciado={enunciado[1]} isReset={testFinish} logica={(content, answer) => handleContent(content, answer, 'pregunta2')} />
                             </div>
-                            <div className='pregunta3-cont'>
+                            <div className={`pregunta3-cont ${correct3}`}>
                                 <Pregunta nroPregunta={3} codigo={codigo[2]} enunciado={enunciado[2]} isReset={testFinish} logica={(content, answer) => handleContent(content, answer, 'pregunta3')} />
                             </div>
-                            <div className='pregunta4-cont'>
+                            <div className={`pregunta4-cont ${correct4}`}>
                                 <Pregunta nroPregunta={4} codigo={codigo[3]} enunciado={enunciado[3]} isReset={testFinish} logica={(content, answer) => handleContent(content, answer, 'pregunta4')} />
                             </div>
                             {!testFinish &&

@@ -44,34 +44,42 @@
 }
 
 .pregunta1-cont.correct {
+    padding: 5px;
     background-color: rgba(0, 255, 0, 0.5);
 }
 
 .pregunta1-cont.incorrect {
+    padding: 5px;
     background-color: rgba(255, 0, 0, 0.5);
 }
 
 .pregunta2-cont.correct {
+    padding: 5px;
     background-color: rgba(0, 255, 0, 0.5);
 }
 
 .pregunta2-cont.incorrect {
+    padding: 5px;
     background-color: rgba(255, 0, 0, 0.5);
 }
 
 .pregunta3-cont.correct {
+    padding: 5px;
     background-color: rgba(0, 255, 0, 0.5);
 }
 
 .pregunta3-cont.incorrect {
+    padding: 5px;
     background-color: rgba(255, 0, 0, 0.5);
 }
 
 .pregunta4-cont.correct {
+    padding: 5px;
     background-color: rgba(0, 255, 0, 0.5);
 }
 
 .pregunta4-cont.incorrect {
+    padding: 5px;
     background-color: rgba(255, 0, 0, 0.5);
 }
 
