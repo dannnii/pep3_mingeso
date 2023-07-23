@@ -233,8 +233,8 @@ const Prueba = () => {
                         <div className='content-dificultad'>
                             <h1 className='title'>Seleccione la dificultad de la prueba</h1>
                             <div className='content-btns'>
-                                <button onClick={() => handleQuestion("facil")} className='btns'>Básico</button>
-                                <button onClick={() => handleQuestion("intermedia")} className='btns'>Medio</button>
+                                <button onClick={() => handleQuestion("facil")} className='btns'>Fácil</button>
+                                <button onClick={() => handleQuestion("intermedia")} className='btns'>Media</button>
                                 <button onClick={() => handleQuestion("dificil")} className='btns'>Difícil</button>
                             </div>
                         </div>

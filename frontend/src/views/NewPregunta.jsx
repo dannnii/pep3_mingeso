@@ -39,15 +39,15 @@ const NewPregunta = () => {
         </div>
 
         <div className="contentFormEnunciado">
-          <label className='title' htmlFor="respuesta">Respuesta</label>
+          <label className='title' htmlFor="respuesta">Respuesta:</label>
           <input className='input' type="text" name="respuesta" id="respuesta" placeholder="Ingrese la respuesta" />
         </div>
 
         <div className="contentFormEnunciado">
           <label className='title' htmlFor="respuesta">Dificultad</label>
           <select onChange={handleChangeInput} className='select' id="nivel" name="nivel">
-            <option value="basico">Básico</option>
-            <option value="medio">Medio</option>
+            <option value="facil">Fácil</option>
+            <option value="intermedia">Intermedia</option>
             <option value="dificil">Difícil</option>
           </select>
         </div>
