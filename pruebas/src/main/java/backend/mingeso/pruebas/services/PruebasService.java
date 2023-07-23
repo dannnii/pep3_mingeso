@@ -34,7 +34,7 @@ public class PruebasService {
 */
 
     public ResponseEntity<PruebasEntity> savePregunta(PruebasEntity pruebasEntity) {
-        // Validar si ya existe una pregunta con el mismo enunciado
+      /*  // Validar si ya existe una pregunta con el mismo enunciado
         PruebasEntity preguntaExistente = pruebasRepository.findByEnunciado(pruebasEntity.getEnunciado());
         //if (preguntaExistente != null) {
             // Si ya existe una pregunta con el mismo enunciado, retornar un error
@@ -44,6 +44,12 @@ public class PruebasService {
         // Si la pregunta no existe, guardarla en la base de datos
         PruebasEntity nuevaPregunta = pruebasRepository.save(pruebasEntity);
         return ResponseEntity.ok(nuevaPregunta);
+*/
+            // Aquí ya no es necesario validar si existe una pregunta con el mismo enunciado
+            // Simplemente guardar la nueva pregunta en la base de datos
+        PruebasEntity nuevaPregunta = pruebasRepository.save(pruebasEntity);
+        return ResponseEntity.ok(nuevaPregunta);
+
     }
 
 

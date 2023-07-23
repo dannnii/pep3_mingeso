@@ -40,9 +40,9 @@ public class PruebasController {
     @PostMapping("/agregar-pregunta")
     public ResponseEntity<PruebasEntity> savePregunta(@RequestBody PruebasEntity pruebasEntity) {
         ResponseEntity<PruebasEntity> response = pruebasService.savePregunta(pruebasEntity);
-        if (response.getStatusCode() == HttpStatus.CONFLICT) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // Pregunta duplicada
-        }
+        //if (response.getStatusCode() == HttpStatus.CONFLICT) {
+        //    return ResponseEntity.status(HttpStatus.CONFLICT).build(); // Pregunta duplicada
+        //}
         return response;
     }
 
