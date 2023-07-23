@@ -3,15 +3,23 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import "/src/styles/Pregunta.css";
 
-const Pregunta = ({ nroPregunta, imagen, enunciado, logica, isReset }) => {
+const Pregunta = ({ nroPregunta, codigo, enunciado, logica, isReset }) => {
     const [respuesta, setRespuesta] = useState('');
+    const [viewCode, setViewCode] = useState(false);
 
-    const codigo = `count = 0
-for num in range(1, 21):
-    if num % 2 == 0:
-        count += 1
-print(count)`;
+    const codigo2 = `a = 8
+    b = 4
+    c = 2 
+    d = a / b % c ** c
+    print(d)`;
 
+    const formatCode = (code) => {
+        console.log(code)
+        const lines = code.split('\n');
+        const formattedCode = lines.map((line) => `${line.trim()}`).join('\n');
+        setViewCode(formattedCode);
+        console.log(formattedCode);
+    }
     const handleAnswer = (event) => {
         if (event.target.value === '') {
             setRespuesta('');
@@ -21,7 +29,9 @@ print(count)`;
             logica(true, event.target.value);
         }
     };
-
+    useEffect(() => {
+        formatCode(codigo);
+    }, [codigo])
     useEffect(() => {
         if (!isReset) {
             setRespuesta("");
@@ -34,15 +44,18 @@ print(count)`;
             <span className='Enunciado'>
                 <strong>Pregunta {nroPregunta}:</strong> {enunciado}
             </span>
-            <SyntaxHighlighter className='imagen'  language="python" style={atomOneLight} customStyle={{textAlign: "left", padding: "1em"}}>
-                {codigo}
+            <pre className="codigo">
+                <code>{codigo}</code>
+            </pre>
+            <SyntaxHighlighter className='codigo' language="python" style={atomOneLight} customStyle={{ textAlign: "left", padding: "1em" }}>
+                {viewCode}
             </SyntaxHighlighter>
             <div className="input-answer">
                 <label className='title' htmlFor="enunciado">Ingrese su respuesta aquí:</label>
                 <input value={respuesta} onChange={handleAnswer} className='input-answer' type='text' />
             </div>
 
-            
+
         </div>
     );
 };

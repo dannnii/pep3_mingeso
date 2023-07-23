@@ -1,16 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import "/src/styles/NewPregunta.css";
 const NewPregunta = () => {
 
   const [enunciado, setEnunciado] = useState('');
-  const [imagen, setImagen] = useState('');
+  const [codigo, setCodigo] = useState('');
   const [respuesta, setRespuesta] = useState('');
   const [dificultad, setDificultad] = useState('');
   const handleSubmit = (e) => {
-    console.log("aaaaa");
-    if (enunciado && imagen && respuesta) {
-      alert("Pregunta subida");
+    e.preventDefault();
+    console.log("enunciado", enunciado);
+    console.log("codigo", codigo);
+    console.log("respuesta", respuesta);
+    console.log("dificultad", dificultad);
+    
+    if (enunciado && codigo && respuesta && dificultad) {
+      const data = {
+        enunciado,
+        codigo,
+        respuesta,
+        dificultadPrueba: dificultad
+      };
+      axios.post('http://localhost:8080/pruebas/agregar-pregunta', data)
+        .then(response => {
+          console.log(response.data);
+          alert("Pregunta subida");
+        })
+        .catch(error => {
+          // Aquí puedes manejar los errores
+          console.error(error);
+        });
     } else {
       alert("Ingrese todos los datos");
     }
@@ -18,11 +38,12 @@ const NewPregunta = () => {
   };
 
   const handleChangeInput = (e) => {
-    if (e.target.name === enunciado) {
+    console.log("ajdslkasdj",e.target.name);
+    if (e.target.name === "enunciado") {
       setEnunciado(e.target.value);
-    } else if (e.target.name === imagen) {
-      setImagen(e.target.value);
-    } else if (e.target.name === respuesta) {
+    } else if (e.target.name === "codigo") {
+      setCodigo(e.target.value);
+    } else if (e.target.name === "respuesta") {
       setRespuesta(e.target.value);
     } else {
       console.log("es dificultad", e.target.value);
@@ -40,12 +61,13 @@ const NewPregunta = () => {
 
         <div className="contentFormEnunciado">
           <label className='title' htmlFor="respuesta">Respuesta:</label>
-          <input className='input' type="text" name="respuesta" id="respuesta" placeholder="Ingrese la respuesta" />
+          <input onChange={handleChangeInput} className='input' type="text" name="respuesta" id="respuesta" placeholder="Ingrese la respuesta" />
         </div>
 
         <div className="contentFormEnunciado">
           <label className='title' htmlFor="respuesta">Dificultad</label>
           <select onChange={handleChangeInput} className='select' id="nivel" name="nivel">
+            
             <option value="facil">Fácil</option>
             <option value="intermedia">Intermedia</option>
             <option value="dificil">Difícil</option>
@@ -53,10 +75,9 @@ const NewPregunta = () => {
         </div>
 
         <div className="contentForm">
-          <label className='title' htmlFor="imagen">Imagen</label>
-          <div className='contentImage'>
-            <input type="file" id="imagen" name="imagen" accept="image/*" />
-          </div>
+          <label className='title' htmlFor="codigo">Código</label>
+          <input onChange={handleChangeInput} className='input' type="text" name="codigo" id="codigo" placeholder="Ingrese el código" />
+
         </div>
 
         <div className="contentFormBTNS">

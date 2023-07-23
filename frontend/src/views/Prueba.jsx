@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Pregunta from "/src/components/Pregunta.jsx"
 import { Link } from 'react-router-dom';
+import { useStopwatch } from 'react-timer-hook';
 import "/src/styles/Prueba.css";
 import axios from 'axios';
 const Prueba = () => {
@@ -11,6 +12,18 @@ const Prueba = () => {
     const [preguntas, setPreguntas] = useState([]);
     const [preguntasData, setPreguntasData] = useState([]);
     const [codigo, setCodigo] = useState([]);
+
+    const {
+        totalSeconds,
+        seconds,
+        minutes,
+        hours,
+        days,
+        isRunning,
+        start,
+        pause,
+        reset,
+    } = useStopwatch({ autoStart: true });
 
     const [enunciado, setEnunciado] = useState([]);
     const [correct1, setCorrect1] = useState("");
@@ -101,6 +114,7 @@ const Prueba = () => {
 
     // Call the calculateGrade function in handleSubmit
     const handleSubmit = (event) => {
+        
         event.preventDefault();
         // Lógica para manejar el envío del formulario
         if (completed_preg.pregunta1 && completed_preg.pregunta2 && completed_preg.pregunta3 && completed_preg.pregunta4) {
@@ -108,7 +122,7 @@ const Prueba = () => {
             console.log('Formulario enviado');
             calculateGrade();
             setTestFinish(true);
-
+            pause();
         } else {
             alert('El formulario no puede ser enviado, debido a que no se han contestado todas las preguntas');
 
@@ -116,6 +130,7 @@ const Prueba = () => {
     };
 
     const handleReset = () => {
+        reset();
         setTestFinish(false);
         setCompletedPreg({
             pregunta1: false,
@@ -130,9 +145,9 @@ const Prueba = () => {
             pregunta3: "",
             pregunta4: "",
         });
-        
+
         setCorrect1("");
-        setCorrect2("");    
+        setCorrect2("");
         setCorrect3("");
         setCorrect4("");
     };
@@ -151,6 +166,7 @@ const Prueba = () => {
     };
 
     const handleQuestion = (dificultad) => {
+        reset();
         setDificultad(dificultad);
         const preguntas = preguntasData.filter((pregunta) => pregunta.dificultadPrueba === dificultad);
 
@@ -199,9 +215,9 @@ const Prueba = () => {
 
     useEffect(() => {
         console.log("ingresadoaaaaaa", ingresado);
-        console.log("codigo in preuba", codigo);
-        console.log("enunciado in preuba", enunciado);
-        console.log("respuestas in preuba", respuestas);
+        console.log("codigo in prueba", codigo);
+        console.log("enunciado in prueba", enunciado);
+        console.log("respuestas in prueba", respuestas);
     }, [codigo]);
 
     useEffect(() => {
@@ -219,6 +235,7 @@ const Prueba = () => {
 
     return (
         <div className='container-Form'>
+
             {testFinish && (
                 <>
                     <h1>Respuestas correctas: {correctAnswers}</h1>
@@ -234,7 +251,7 @@ const Prueba = () => {
                             <h1 className='title'>Seleccione la dificultad de la prueba</h1>
                             <div className='content-btns'>
                                 <button onClick={() => handleQuestion("facil")} className='btns'>Fácil</button>
-                                <button onClick={() => handleQuestion("intermedia")} className='btns'>Media</button>
+                                <button onClick={() => handleQuestion("intermedia")} className='btns'>Intermedia</button>
                                 <button onClick={() => handleQuestion("dificil")} className='btns'>Difícil</button>
                             </div>
                         </div>
@@ -243,6 +260,12 @@ const Prueba = () => {
                 :
                 (
                     <>
+                        <div className="timer">
+                            <h1>Tiempo: </h1>
+                            <div style={{ fontSize: '100px' }}>
+                                <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+                            </div>
+                        </div>
                         <form action='' className='formCont' onSubmit={handleSubmit}>
                             <div className={`pregunta1-cont ${correct1}`}>
                                 <Pregunta nroPregunta={1} codigo={codigo[0]} enunciado={enunciado[0]} isReset={testFinish} logica={(content, answer) => handleContent(content, answer, 'pregunta1')} />

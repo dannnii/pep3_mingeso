@@ -1,12 +1,13 @@
+
 .Home {
-    background-color: gray;
+    background-color: #FFFFFF;
     width: 100vh;
-    height: 30vh;
+    height: vh;
     /* Usamos 100vh para que ocupe el 100% del alto de la ventana */
     margin: 0;
     padding: 0;
-    color: white;
-    border: 2px solid black;
+    color: #03B9AD;
+    border: 4px solid #0AAEA3;
     border-radius: 10px;
     justify-content: center;
     /* Centramos verticalmente */
@@ -14,17 +15,18 @@
     /* Centramos horizontalmente */
 }
 
-.Home .home-btns{
-    width: 100vh;
-}
 
 .btns{
     margin: 10px;
+    color: #FFFFFF;
+    background-color: #DD7900;
+    border: 2px solid #FFFFFF;
+
 }
 
 .btns:hover{
     margin: 10px;
-    background-color: white;
-    border: 2px solid black;
-    color: black;
+    background-color: #cb7103;
+    border: 4px solid #FFFFFF;
+    color: #FFFFFF;
 }

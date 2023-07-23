@@ -18,10 +18,11 @@
     white-space: normal;
 }
 
-.container-preg .imagen {
+.container-preg .codigo {
     width: auto;
     height: auto;
     margin-bottom: 20px;
+    white-space: pre-wrap;
 }
 
 

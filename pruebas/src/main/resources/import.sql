@@ -3,13 +3,13 @@
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
 VALUES ('facil', '¿Qué imprime el siguiente código?', 'a = 3\nb = 7\nc = 9\na = c % b\nb = a // b % c\nprint(a * b + c % a + b + c)', '25');
 
--- Pregunta 2: ¿Cual es el resultado al evaluar en Python?
+-- Pregunta 2: ¿Cuál es el resultado al evaluar en Python?
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
-VALUES ('facil', '¿Cual es el resultado al evaluar en Python?', 'a = 8\nb = 4\nc = 2\nd = a // b % c ** c\nprint(d)', '0');
+VALUES ('facil', '¿Cuál es el resultado al evaluar en Python?', 'a = 8\nb = 4\nc = 2\nd = a // b % c ** c\nprint(d)', '0');
 
 -- Pregunta 3: ¿Qué se imprime por pantalla?
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
-VALUES ('facil', '¿Qué se imprime por pantalla?', 'n = 15\nh = 5\nwhile n >=1:\n  if n % 2 != 0:\n        h = h + n\n  n = n-1\nprint(h//3)', '20');
+VALUES ('facil', '¿Qué se imprime por pantalla?', 'n = 15\nh = 5\nwhile n >= 1:\n  if n % 2 != 0:\n    h = h + n\n  n = n-1\nprint(h//3)', '20');
 
 -- Pregunta 4: ¿Qué valor se muestra por pantalla?
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
@@ -118,6 +118,7 @@ VALUES ('facil', '¿Cuál es el valor de la variable "total"?', 'lista = [1, 2, 
 -- Pregunta 30: ¿Cuánto es 2 elevado a la 5ta potencia?
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
 VALUES ('facil', '¿Cuánto es 2 elevado a la 5ta potencia?', 'potencia = 2 ** 5\nprint(potencia)', '32');
+
 -- Pregunta 31: ¿Cuántos números pares hay en el rango del 1 al 20?
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
 VALUES ('intermedia', '¿Cuántos números pares hay en el rango del 1 al 20?', 'count = 0\nfor num in range(1, 21):\n  if num % 2 == 0:\n    count += 1\nprint(count)', '10');
@@ -141,6 +142,5 @@ VALUES ('dificil', '¿Cuál es el resultado de la operación matemática?', 'a =
 -- Pregunta 36: ¿Cuál es el valor de la variable "total"?
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
 VALUES ('dificil', '¿Cuál es el valor de la variable "total"?', 'def suma_impares(n):\n  total = 0\n  for i in range(1, n+1, 2):\n    total += i\n  return total\nprint(suma_impares(15))', '64');
-
 
  */
