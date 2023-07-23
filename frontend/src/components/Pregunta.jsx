@@ -6,20 +6,14 @@ import "/src/styles/Pregunta.css";
 const Pregunta = ({ nroPregunta, codigo, enunciado, logica, isReset }) => {
     const [respuesta, setRespuesta] = useState('');
     const [viewCode, setViewCode] = useState(false);
+    ;
 
-    const codigo2 = `a = 8
-    b = 4
-    c = 2 
-    d = a / b % c ** c
-    print(d)`;
+    useEffect(() => {
+        const codigo2 = codigo.replace(/\\n/g, "\n");
+        console.log(codigo2);
+        setViewCode(codigo2);
+    }, [codigo]);
 
-    const formatCode = (code) => {
-        console.log(code)
-        const lines = code.split('\n');
-        const formattedCode = lines.map((line) => `${line.trim()}`).join('\n');
-        setViewCode(formattedCode);
-        console.log(formattedCode);
-    }
     const handleAnswer = (event) => {
         if (event.target.value === '') {
             setRespuesta('');
@@ -29,9 +23,7 @@ const Pregunta = ({ nroPregunta, codigo, enunciado, logica, isReset }) => {
             logica(true, event.target.value);
         }
     };
-    useEffect(() => {
-        formatCode(codigo);
-    }, [codigo])
+
     useEffect(() => {
         if (!isReset) {
             setRespuesta("");
@@ -44,12 +36,10 @@ const Pregunta = ({ nroPregunta, codigo, enunciado, logica, isReset }) => {
             <span className='Enunciado'>
                 <strong>Pregunta {nroPregunta}:</strong> {enunciado}
             </span>
-            <pre className="codigo">
-                <code>{codigo}</code>
-            </pre>
             <SyntaxHighlighter className='codigo' language="python" style={atomOneLight} customStyle={{ textAlign: "left", padding: "1em" }}>
                 {viewCode}
             </SyntaxHighlighter>
+
             <div className="input-answer">
                 <label className='title' htmlFor="enunciado">Ingrese su respuesta aquí:</label>
                 <input value={respuesta} onChange={handleAnswer} className='input-answer' type='text' />
