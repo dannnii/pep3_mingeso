@@ -8,11 +8,37 @@
     align-items: center;
 }
 
-.botns {
+.content-dificultad .btns {
+    background-color: #FFFFFF;
     margin: 10px;
     color: #00A499;
+    border: 2px solid #5C7380;
+}
+
+.content-dificultad .btns:hover {
     background-color: #FFFFFF;
-    border: 4px solid #5C7380;
+    border: 3px solid #5C7380;
+    color: #00A499;
+}
+
+.container-Form .btn-prueba {
+    background-color: #FFFFFF;
+    margin: 10px;
+    color: #00A499;
+    border: 2px solid #5C7380;
+}
+
+.container-Form .btn-prueba:hover {
+    background-color: #FFFFFF;
+    border: 3px solid #5C7380;
+    color: #00A499;
+}
+
+.btn-prueba-volver {
+    background-color: #FFFFFF;
+    margin: 10px;
+    color: #00A499;
+    border: 2px solid #5C7380;
 }
 
 .container-Form .pregunta1-cont {

@@ -281,7 +281,7 @@ const Prueba = () => {
                             </div>
                             {!testFinish &&
                                 <>
-                                    <button type='submit'>Enviar Respuesta</button>
+                                    <button type='submit'className='btn-prueba'>Enviar Respuesta</button>
 
                                 </>
                             }
@@ -289,12 +289,12 @@ const Prueba = () => {
 
                         {testFinish &&
                             <>
-                                <button onClick={handleReset}>Reiniciar</button>
+                                <button onClick={handleReset}className='btn-prueba'>Reiniciar</button>
                             </>
                         }
 
                         <Link to='/'>
-                            <button className='btns'>Volver</button>
+                            <button className='btn-prueba-volver'>Volver</button>
                         </Link>
                     </>
                 )

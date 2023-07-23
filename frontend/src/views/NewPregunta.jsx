@@ -60,12 +60,12 @@ const NewPregunta = () => {
         </div>
 
         <div className="contentFormEnunciado">
-          <label className='title' htmlFor="respuesta">Respuesta:</label>
-          <input onChange={handleChangeInput} className='input' type="text" name="respuesta" id="respuesta" placeholder="Ingrese la respuesta" />
+          <label className='title' htmlFor="respuesta">Respuesta :</label>
+          <input onChange={handleChangeInput} className='input' type="text" name="respuesta" id="respuesta" placeholder="Ingrese la respuesta numérica" />
         </div>
 
         <div className="contentFormEnunciado">
-          <label className='title' htmlFor="respuesta">Dificultad</label>
+          <label className='title' htmlFor="respuesta">Dificultad :</label>
           <select onChange={handleChangeInput} className='select' id="nivel" name="nivel">
             
             <option value="facil">Fácil</option>
@@ -74,9 +74,15 @@ const NewPregunta = () => {
           </select>
         </div>
 
-        <div className="contentForm">
-          <label className='title' htmlFor="codigo">Código</label>
-          <input onChange={handleChangeInput} className='input' type="text" name="codigo" id="codigo" placeholder="Ingrese el código" />
+        <div className="contentFormEnunciado">
+          <label className='title' htmlFor="codigo">Código : </label>
+          <div className="ejemploInput">
+              <span className="ejemplo">
+                Ejemplo:
+                "a = 7\nb = 3\nc = a & b\nprint(c)"
+              </span>
+          </div>
+          <input onChange={handleChangeInput} className='input' type="text" name="codigo" id="codigo" placeholder="Ingrese el código en formato de texto" />
 
         </div>
 
