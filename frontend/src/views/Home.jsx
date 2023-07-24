@@ -13,7 +13,7 @@ const Home = () => {
 
       </div>
       <div className="Home">
-        <h1>Selecciona una de las siguientes opciones para continuar</h1>
+        <h1>Selecciona una de las siguientes opciones para comenzar</h1>
         <div className='home-btns'>
           <Link to="/prueba">
             <button className='btns'>Empezar prueba</button>

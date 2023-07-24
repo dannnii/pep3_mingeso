@@ -25,15 +25,11 @@ VALUES ('intermedia', '¿Cuál es el resultado final?', 'a = 5\nb = 3\nc = 2\nfo
 
 -- Pregunta 7: ¿Qué valor se muestra por pantalla?
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
-VALUES ('intermedia', '¿Qué valor se muestra por pantalla?', 'x = 3\ny = 5\nz = x * y + 2 ** x\nprint(z)', '98');
+VALUES ('intermedia', '¿Qué valor se muestra por pantalla?', 'x = 3\ny = 5\nz = x * y + 2 ** x\nprint(z)', '23');
 
 -- Pregunta 8: ¿Cuál es la suma de los elementos en la lista?
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
 VALUES ('intermedia', '¿Cuál es la suma de los elementos en la lista?', 'lista = [2, 4, 6, 8, 10]\nsuma = sum(lista)\nprint(suma)', '30');
-
--- Pregunta 9: ¿Qué resultado imprime el siguiente código?
-INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
-VALUES ('intermedia', '¿Qué resultado imprime el siguiente código?', 'x = 10\nif x > 5:\n  print("Mayor que 5")\nelse:\n  print("Menor o igual que 5")', '0');
 
 -- Pregunta 10: ¿Cuál es el resultado de la función recursiva?
 INSERT INTO pruebas (dificultad_prueba, enunciado, codigo, respuesta)
