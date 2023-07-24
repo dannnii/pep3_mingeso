@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     color: #5C7380;
-    border: 4px solid #0AAEA3;
+    border: 3px solid gray;
     border-radius: 10px;
     justify-content: center;
     /* Centramos verticalmente */
@@ -20,13 +20,13 @@
     margin: 10px;
     color: #FFFFFF;
     background-color: #DD7900;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #00A499;
 
 }
 
 .home-btns .btns:hover{
     margin: 10px;
     background-color: #cb7103;
-    border: 4px solid #FFFFFF;
-    color: #FFFFFF;
+    border: 2px solid #5C7380;
+    color: black;
 }

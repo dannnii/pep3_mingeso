@@ -18,7 +18,7 @@
 .content-dificultad .btns:hover {
     background-color: #FFFFFF;
     border: 3px solid #5C7380;
-    color: #00A499;
+    color: black;
 }
 
 .container-Form .btn-prueba {
@@ -31,7 +31,7 @@
 .container-Form .btn-prueba:hover {
     background-color: #FFFFFF;
     border: 3px solid #5C7380;
-    color: #00A499;
+    color: black;
 }
 
 .btn-prueba-volver {
@@ -40,7 +40,12 @@
     color: #00A499;
     border: 2px solid #5C7380;
 }
+.btn-prueba-volver:hover {
+    background-color: #FFFFFF;
+    border: 3px solid #5C7380;
+    color: black;
 
+}
 .container-Form .pregunta1-cont {
     display: flex;
     flex-direction: column;
