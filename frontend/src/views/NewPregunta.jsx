@@ -85,12 +85,15 @@ const NewPregunta = () => {
           <input onChange={handleChangeInput} className='input' type="text" name="codigo" id="codigo" placeholder="Ingrese el código en formato de texto" />
 
         </div>
-
         <div className="contentFormBTNS">
-          <button onClick={handleSubmit} className='btns-newQuestion' type="submit">Subir Pregunta</button>
-          <Link to='/'>
-            <button className='btns-back'>Volver</button>
-          </Link>
+          <div className="btn-container">
+            <button onClick={handleSubmit} className='btns-newQuestion' type="submit">
+              Subir Pregunta
+            </button>
+            <Link to='/'>
+              <button className='btns-back'>Volver</button>
+            </Link>
+          </div>
         </div>
 
       </form>

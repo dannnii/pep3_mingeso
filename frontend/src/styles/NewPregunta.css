@@ -104,6 +104,7 @@
 
 .contentFormBTNS .btns-newQuestion{
     background-color: #FFFFFF;
+    margin: 10px;
     color: #00A499;
     border: 2px solid #5C7380;
     width: 200px;
@@ -120,6 +121,7 @@
 
 .contentFormBTNS .btns-back{
     background-color: #FFFFFF;
+    margin: 10px;
     color: #00A499;
     border: 2px solid #5C7380;
     width: 100;
@@ -127,12 +129,14 @@
 }
 
 .contentFormBTNS .btns-back:hover{
-    width: 100;
+    width: 100px;
     margin-bottom: 10px;
     background-color: white;
     border: 2px solid black;
     color: black;
 }
+
+
 
 .contentFormEnunciado .ejemploInput .ejemplo{
     color: gray;
@@ -141,3 +145,4 @@
     width: 350px;
     left: 120px;
 }
+
