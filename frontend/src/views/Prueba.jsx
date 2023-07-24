@@ -114,7 +114,7 @@ const Prueba = () => {
 
     // Call the calculateGrade function in handleSubmit
     const handleSubmit = (event) => {
-        
+
         event.preventDefault();
         // Lógica para manejar el envío del formulario
         if (completed_preg.pregunta1 && completed_preg.pregunta2 && completed_preg.pregunta3 && completed_preg.pregunta4) {
@@ -189,7 +189,6 @@ const Prueba = () => {
             preguntas[3]
         ];
 
-        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA", selectedQuestions);
         setPreguntas(selectedQuestions);
         setCodigo([
             selectedQuestions[0].codigo,
@@ -236,14 +235,7 @@ const Prueba = () => {
     return (
         <div className='container-Form'>
 
-            {testFinish && (
-                <>
-                    <h1>Respuestas correctas: {correctAnswers}</h1>
-                    <h1>Respuestas incorrectas: {incorrectAnswers}</h1>
-                    <h1>Nota: {averageGrade}</h1>
 
-                </>
-            )}
             {dificultad === "" ?
                 (
                     <>
@@ -260,12 +252,23 @@ const Prueba = () => {
                 :
                 (
                     <>
-                        <div className="timer">
-                            <h1>Tiempo: </h1>
-                            <div style={{ fontSize: '100px' }}>
-                                <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+                        <div className="infoFinishTest">
+                            {testFinish && (
+                                <>
+                                    <h1>Respuestas correctas: {correctAnswers}</h1>
+                                    <h1>Respuestas incorrectas: {incorrectAnswers}</h1>
+                                    <h1>Nota: {averageGrade}</h1>
+
+                                </>
+                            )}
+                            <div className="timer">
+                                <h1>Tiempo: </h1>
+                                <div style={{ fontSize: '100px' }}>
+                                    <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+                                </div>
                             </div>
                         </div>
+
                         <form action='' className='formCont' onSubmit={handleSubmit}>
                             <div className={`pregunta1-cont ${correct1}`}>
                                 <Pregunta nroPregunta={1} codigo={codigo[0]} enunciado={enunciado[0]} isReset={testFinish} logica={(content, answer) => handleContent(content, answer, 'pregunta1')} />
@@ -279,23 +282,26 @@ const Prueba = () => {
                             <div className={`pregunta4-cont ${correct4}`}>
                                 <Pregunta nroPregunta={4} codigo={codigo[3]} enunciado={enunciado[3]} isReset={testFinish} logica={(content, answer) => handleContent(content, answer, 'pregunta4')} />
                             </div>
-                            {!testFinish &&
-                                <>
-                                    <button type='submit'className='btn-prueba'>Enviar Respuesta</button>
+                            <div className="containerActionBTN">
+                                {!testFinish &&
+                                    <>
+                                        <button type='submit' className='btn-prueba'>Enviar Respuesta</button>
 
-                                </>
-                            }
+                                    </>
+                                }
+                                {testFinish &&
+                                    <>
+                                        <button onClick={handleReset} className='btn-prueba'>Reiniciar</button>
+                                    </>
+                                }
+
+                                <Link to='/'>
+                                    <button className='btn-prueba-volver'>Volver</button>
+                                </Link>
+                            </div>
                         </form>
 
-                        {testFinish &&
-                            <>
-                                <button onClick={handleReset}className='btn-prueba'>Reiniciar</button>
-                            </>
-                        }
 
-                        <Link to='/'>
-                            <button className='btn-prueba-volver'>Volver</button>
-                        </Link>
                     </>
                 )
 

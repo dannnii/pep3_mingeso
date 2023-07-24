@@ -8,12 +8,6 @@ const Pregunta = ({ nroPregunta, codigo, enunciado, logica, isReset }) => {
     const [viewCode, setViewCode] = useState(false);
     ;
 
-    useEffect(() => {
-        const codigo2 = codigo.replace(/\\n/g, "\n");
-        console.log(codigo2);
-        setViewCode(codigo2);
-    }, [codigo]);
-
     const handleAnswer = (event) => {
         if (event.target.value === '') {
             setRespuesta('');
@@ -28,8 +22,14 @@ const Pregunta = ({ nroPregunta, codigo, enunciado, logica, isReset }) => {
         if (!isReset) {
             setRespuesta("");
         }
-        console.log(nroPregunta);
     }, [isReset]);
+
+
+    useEffect(() => {
+        const codigo2 = codigo.replace(/\\n/g, "\n");
+
+        setViewCode(codigo2);
+    }, [codigo]);
 
     return (
         <div className='container-preg'>
